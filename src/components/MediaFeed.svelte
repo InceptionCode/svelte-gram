@@ -21,7 +21,10 @@
 </script>
 
 <style>
-
+  div {
+    height: inherit;
+    overflow-x: auto;
+  }
 </style>
 
 <div>

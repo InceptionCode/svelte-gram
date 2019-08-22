@@ -12,7 +12,8 @@
   }
   .phone-body {
     position: relative;
-    background: whitesmoke;
+    overflow: hidden;
+    background: rgb(252, 252, 252);
     width: 600px;
     height: calc(100vh - 70px);
     padding: 20px 0;

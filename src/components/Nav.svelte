@@ -1,11 +1,14 @@
 <script>
-  import {
-    HomeIcon,
-    SearchIcon,
-    PlusSquareIcon,
-    HeartIcon
-  } from "svelte-feather-icons";
   import ProfileIcon from "./ProfileIcon.svelte";
+  import SvgTag from "./services/SvgTagBuilder.svelte";
+  import { icon } from "@fortawesome/fontawesome-svg-core";
+  import { faHome, faSearch } from "@fortawesome/free-solid-svg-icons";
+  import { faPlusSquare, faHeart } from "@fortawesome/free-regular-svg-icons";
+
+  const home = icon(faHome).abstract.pop();
+  const search = icon(faSearch).abstract.pop();
+  const heart = icon(faHeart).abstract.pop();
+  const plusSquare = icon(faPlusSquare).abstract.pop();
 </script>
 
 <style>
@@ -22,7 +25,7 @@
     display: flex;
     justify-content: space-evenly;
   }
-  span {
+  div > :first-child {
     display: flex-inline;
     width: 30px;
   }
@@ -31,16 +34,16 @@
 <nav>
   <div class="nav-links">
     <span>
-      <HomeIcon />
+      <SvgTag icon={home} height="100" width="100" />
     </span>
     <span>
-      <SearchIcon />
+      <SvgTag icon={search} height="100" width="100" />
     </span>
     <span>
-      <PlusSquareIcon />
+      <SvgTag icon={plusSquare} height="100" width="100" />
     </span>
     <span>
-      <HeartIcon />
+      <SvgTag icon={heart} height="100" width="100" />
     </span>
     <span>
       <ProfileIcon />

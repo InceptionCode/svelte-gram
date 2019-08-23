@@ -2,6 +2,7 @@
   import Nav from "./components/Nav.svelte";
   import MediaFeed from "./components/MediaFeed.svelte";
   import { Firestore } from "./firebaseStore";
+  import "../global.css";
 </script>
 
 <style>

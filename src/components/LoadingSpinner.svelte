@@ -1,9 +1,4 @@
 <style>
-  body {
-    background-color: #000;
-    padding: 30px 100px;
-  }
-
   #loader {
     animation: spin 1.2s ease-in-out infinite;
     border: 1px solid transparent;

@@ -1,14 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
-/*TODO list:
-  minification 
-  extracting and inserting assets css, media, html template ext
-  cache busting -> inserting hash to filename
-  set up scripts 
-*/
 module.exports = {
   entry: './src/main.js',
   resolve: {

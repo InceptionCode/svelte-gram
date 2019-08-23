@@ -1,6 +1,10 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
+  "sideEffects": [
+    "./src/App.svelte",
+    "**/*.css"
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -16,7 +20,6 @@
     "style-loader": "^1.0.0",
     "svelte": "^3.0.0",
     "svelte-loader": "^2.13.6",
-    "svg-inline-loader": "^0.8.0",
     "url-loader": "^2.1.0",
     "webpack-dev-server": "^3.8.0"
   },
@@ -25,6 +28,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "firebase": "^6.4.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sirv-cli": "^0.4.4",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"

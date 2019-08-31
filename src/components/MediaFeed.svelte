@@ -7,6 +7,7 @@
   const grabMediaFeed = async () => {
     let feeds = [];
     if (feedDb) {
+      console.log(feedDb);
       try {
         const snapshot = await feedDb.collection("test_feed").get();
         snapshot.forEach(doc => {

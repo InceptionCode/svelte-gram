@@ -8,7 +8,7 @@
   }
   .default-img {
     position: relative;
-    top: 5px;
+    bottom: 5px;
     background-color: darkred;
     color: white;
     border-radius: 100%;

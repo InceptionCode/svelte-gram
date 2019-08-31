@@ -17,6 +17,9 @@ module.exports = merge.smart(common, {
   module: {
     rules: []
   },
+  optimization: {
+    minimize: false
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Svelte Gram Dev',

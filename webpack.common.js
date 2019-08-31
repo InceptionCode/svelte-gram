@@ -34,24 +34,12 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            ignoreCustomFragments: [/\{\{.*?}}/],
-            root: path.resolve(__dirname, 'dist'),
-            attrs: ['img:src', 'link:href', 'video:src']
-          }
-        }
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/i,
+        use: ['url-loader?limit=8100']
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
-      },
-      {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/i,
-        use: ['url-loader?limit=100000']
       },
       {
         test: /\.mp4$/,

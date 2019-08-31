@@ -1,6 +1,5 @@
-import * as firebase from 'firebase/app'
-import * as firestore from 'firebase/firestore'
-import * as auth from 'firebase/auth'
+import firebase from 'firebase'
+import 'firebase/firestore'
 
 var firebaseConfig = {
   apiKey: process.env.APIKEY,
@@ -16,7 +15,7 @@ firebase.initializeApp(firebaseConfig)
 
 export const Firestore = {
   rootStore: null,
-  db: firestore(),
-  auth: auth(),
-  fb: firestore
+  db: firebase.firestore(),
+  auth: firebase.auth(),
+  fb: firebase.firestore
 }

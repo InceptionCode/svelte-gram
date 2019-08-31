@@ -24,11 +24,13 @@ module.exports = merge.smart(common, {
     rules: [
       {
         test: /\.html$/,
-        use: ['html-loader'],
-        options: {
-          minimize: true,
-          removeComments: false,
-          collapseWhitespace: false
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeComments: false,
+            collapseWhitespace: false
+          }
         }
       }
     ]

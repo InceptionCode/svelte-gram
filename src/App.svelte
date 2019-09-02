@@ -1,5 +1,6 @@
 <script>
   import Nav from "components/Nav.svelte";
+  import TopBar from "components/TopBar.svelte";
   import MediaFeed from "components/MediaFeed.svelte";
   import { Firestore } from "firebaseStore";
   import "../global.css";
@@ -24,6 +25,7 @@
 
 <div class="body">
   <div class="phone-body">
+    <TopBar />
     <Nav />
     <MediaFeed feedDb={Firestore.db} />
   </div>

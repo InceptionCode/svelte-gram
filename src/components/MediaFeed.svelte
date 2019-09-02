@@ -2,12 +2,13 @@
   import { onMount, getContext } from "svelte";
   import LoadingSpinner from "components/LoadingSpinner.svelte";
   import MediaItem from "components/MediaItem.svelte";
+  import ProfileIcon from "components/ProfileIcon.svelte";
+
   export let feedDb = null;
 
   const grabMediaFeed = async () => {
     let feeds = [];
     if (feedDb) {
-      console.log(feedDb.collection);
       try {
         const snapshot = await feedDb.collection("test_feed").get();
         snapshot.forEach(doc => {
@@ -25,6 +26,11 @@
   div {
     height: inherit;
     overflow-x: auto;
+    margin-top: 40px;
+  }
+
+  li {
+    list-style-type: none;
   }
 </style>
 
@@ -35,6 +41,7 @@
     <ul>
       {#each feeds as { mediaUrl, mediaType, caption }, i}
         <li>
+          <ProfileIcon imageUrl={feeds.profileImageUrl} />
           user_name...
           <MediaItem
             src={mediaUrl}

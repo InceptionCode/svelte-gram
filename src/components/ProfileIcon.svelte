@@ -1,20 +1,27 @@
 <script>
   export let userName = "DW";
+  export let imageUrl = null;
 </script>
 
 <style>
-  .set-width {
+  .profile-img {
+    position: relative;
+    bottom: 5px;
+    border-radius: 100%;
+    padding: 8px;
     width: 30px;
   }
   .default-img {
-    position: relative;
-    bottom: 5px;
     background-color: darkred;
     color: white;
-    border-radius: 100%;
-    padding: 8px;
   }
 </style>
 
-<!-- <img {src} alt="avatar" /> -->
-<span class="default-img set-width">{userName}</span>
+{#if imageUrl}
+  <span class="profile-img">
+    <img src={imageUrl} alt="" />
+  </span>
+{:else}
+  <!-- <img {src} alt="avatar" /> -->
+  <span class="profile-img default-img">{userName}</span>
+{/if}

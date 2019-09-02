@@ -1,12 +1,17 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: './src/main.js',
   resolve: {
     alias: {
-      svelte: path.resolve('node_modules', 'svelte')
+      svelte: path.resolve('node_modules', 'svelte'),
+      components: path.resolve(__dirname, 'src/components'),
+      media: path.resolve(__dirname, 'src/media'),
+      firebaseStore$: path.resolve(__dirname, 'src/firebaseStore.js')
     },
     extensions: ['.mjs', '.js', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main']
@@ -14,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(html|svelte)$/,
+        test: /\.svelte$/,
         exclude: /node_modules/,
         use: {
           loader: 'svelte-loader',
@@ -43,11 +48,11 @@ module.exports = {
       },
       {
         test: /\.mp4$/,
-        use: ['url-loader?limit=10000&mimetype=video/mp4']
+        use: ['url-loader?limit=8100&mimetype=video/mp4']
       }
     ]
   },
-  plugins: [new Dotenv()]
+  plugins: [new Dotenv(), new CleanWebpackPlugin()] // new BundleAnalyzerPlugin()
 }
 
 // --------------------------------------------------

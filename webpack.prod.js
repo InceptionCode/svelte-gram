@@ -1,4 +1,3 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
 const path = require('path')
@@ -9,11 +8,27 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge.smart(common, {
   mode: 'production',
-  devtool: 'cheap-source-map',
+  devtool: 'none',
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    sideEffects: false,
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      minChunks: 1,
+      minSize: 50000,
+      maxSize: 350000,
+      cacheGroups: {
+        vendors: {
+          name(module, chunks, cacheGroupKey) {
+            const moduleFileName = module
+              .identifier()
+              .split('/')
+              .reduceRight(item => item)
+
+            return `${moduleFileName}-${cacheGroupKey}`
+          }
+        }
+      }
     }
   },
   output: {
@@ -46,7 +61,6 @@ module.exports = merge.smart(common, {
       filename: 'main.[hash].css',
       chunkFilename: '[name].[hash].css',
       ignoreOrder: false // Enable to remove warnings about conflicting order,
-    }),
-    new CleanWebpackPlugin()
+    })
   ]
 })

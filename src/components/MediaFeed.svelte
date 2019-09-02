@@ -1,13 +1,13 @@
 <script>
   import { onMount, getContext } from "svelte";
-  import LoadingSpinner from "../components/LoadingSpinner.svelte";
-  import MediaItem from "../components/MediaItem.svelte";
+  import LoadingSpinner from "components/LoadingSpinner.svelte";
+  import MediaItem from "components/MediaItem.svelte";
   export let feedDb = null;
 
   const grabMediaFeed = async () => {
     let feeds = [];
     if (feedDb) {
-      console.log(feedDb);
+      console.log(feedDb.collection);
       try {
         const snapshot = await feedDb.collection("test_feed").get();
         snapshot.forEach(doc => {

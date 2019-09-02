@@ -1,5 +1,5 @@
 <script>
-  import ProfileIcon from "./ProfileIcon.svelte";
+  import ProfileIcon from "components/ProfileIcon.svelte";
 
   import fas from "@fortawesome/fontawesome-free/sprites/solid.svg";
   import far from "@fortawesome/fontawesome-free/sprites/regular.svg";

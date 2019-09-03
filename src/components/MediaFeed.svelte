@@ -39,9 +39,9 @@
     <LoadingSpinner />
   {:then feeds}
     <ul>
-      {#each feeds as { mediaUrl, mediaType, caption }, i}
+      {#each feeds as { mediaUrl, mediaType, caption, profileImage }, i}
         <li>
-          <ProfileIcon imageUrl={feeds.profileImageUrl} />
+          <ProfileIcon imageUrl={profileImage} />
           user_name...
           <MediaItem
             src={mediaUrl}
